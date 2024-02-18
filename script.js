@@ -1,33 +1,41 @@
 class Person {
   constructor(name, age) {
-    this._name = name;
-    this._age = age;
+    this.name = name;
+    this.age = age;
   }
-
+  
   get name() {
-    return this._name;
+    return this.name; 
   }
 
-  set age(newAge) {
-    if (newAge >= 0) {
-      this._age = newAge;
-    } else {
-      console.error("Age cannot be negative.");
-    }
+  set age(age) {
+    this.age = age;
   }
 }
 
 class Student extends Person {
   study() {
-    console.log(`${this.name} is studying.`);
+    console.log(`${this.name} is studying`); 
   }
 }
 
 class Teacher extends Person {
   teach() {
-    console.log(`${this.name} is teaching.`);
-  }
+    console.log(`${this.name} is teaching`);
+  } 
 }
+
+const person = new Person("John", 25);
+console.log(person.name); 
+
+person.age = 30;
+console.log(person.age);
+
+const student = new Student("Alice", 22); 
+student.study();
+
+const teacher = new Teacher("Bob", 40);
+teacher.teach();
 
 // Do not change the code below this line
 window.Person = Person;
